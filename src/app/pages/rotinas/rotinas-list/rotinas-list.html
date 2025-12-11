@@ -1,0 +1,37 @@
+<div class="rotinas-list-page">
+    <h2>Minhas Rotinas de Skincare</h2>
+
+    <button [routerLink]="['/criar-rotina']" class="btn-primary">
+        + Criar Nova Rotina
+    </button>
+
+    <div *ngIf="isLoading" class="loading-message">
+        Carregando suas rotinas salvas...
+    </div>
+
+    <div *ngIf="errorMessage" class="error-alert">{{ errorMessage }}</div>
+
+    <div *ngIf="!isLoading && rotinas.length === 0" class="empty-state">
+        <p>Você ainda não tem rotinas salvas.</p>
+        <p>Clique em "Criar Nova Rotina" para começar sua rotina personalizada!</p>
+    </div>
+
+    <div *ngIf="!isLoading && rotinas.length > 0" class="rotinas-grid">
+        <div *ngFor="let rotina of rotinas" class="rotina-card">
+            <h3>{{ rotina.nome }}</h3>
+            <p class="meta-info">Criada em: {{ rotina.data_criacao | date:'shortDate' }}</p>
+            
+            <div class="ativos-summary">
+               <p>
+                <span>{{ formatarAtivos(rotina) }}</span>
+                <span *ngIf="rotina.ativos.length > 3"> e mais {{ rotina.ativos.length - 3 }}</span>
+               </p>
+            </div>
+
+            <div class="card-actions">
+                <button (click)="editarRotina(rotina.id)" class="btn-secondary">Editar</button>
+                <button (click)="deletarRotina(rotina.id)" class="btn-danger">Excluir</button>
+            </div>
+        </div>
+    </div>
+</div>
