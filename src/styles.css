@@ -2,7 +2,7 @@
 
 /* 1. VARIÁVEIS CSS */
 :root {
-    --marrom-primario: #A0522D; 
+    --marrom-primario: rgb(194, 149, 128);
     --fundo-principal: #FAFAFA;
     /* ... (outras cores) ... */
 }
@@ -15,7 +15,9 @@
 }
 body {
     background-color: var(--fundo-principal);
+    background-color: rgb(114, 61, 31);
     /* ... (estilos de fonte e linha) ... */
+    color: rgb(194, 149, 128);
 }
 
 /* 3. ESTILOS REUTILIZÁVEIS */
