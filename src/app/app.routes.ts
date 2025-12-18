@@ -4,8 +4,9 @@ import { LoginComponent } from './pages/login/login.component';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { AtivosListComponent } from './pages/ativos/ativos-list/ativos-list.component';
 import { RotinasListComponent } from './pages/rotinas/rotinas-list/rotinas-list.component';
-import { authGuard } from './core/guards/auth-guard'; 
+import { authGuard } from './core/guards/auth-guard';
 import { InteligenteAtivosListComponent } from './pages/ativos/inteligente-ativos-list/inteligente-ativos-list.component';
+import { FavoritosComponent } from './pages/favoritos/favoritos.component';
 
 
 export const routes: Routes = [
@@ -13,6 +14,7 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent, title: 'Login' },
   { path: 'cadastro', component: CadastroComponent, title: 'Cadastro' },
   { path: 'ativos', component: AtivosListComponent, title: 'Explorar Ativos' },
+  { path: 'favoritos', component: FavoritosComponent, canActivate: [authGuard], title: 'Favoritos' },
   { path: 'inteligente-ativos', component: InteligenteAtivosListComponent, title: 'Busca Inteligente de Ativos' },
 
   {

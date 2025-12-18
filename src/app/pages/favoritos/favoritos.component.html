@@ -1,0 +1,27 @@
+<div class="favorites-container">
+  <h2>Seus Favoritos</h2>
+
+  <div *ngIf="loading" class="loading-message">
+    Carregando seus favoritos...
+  </div>
+
+  <div *ngIf="error" class="error-message">
+    {{ error }}
+  </div>
+
+  <div *ngIf="!loading && !error && favoritos.length === 0" class="no-favorites-message">
+    Você ainda não tem favoritos. Navegue pelos ativos e marque os que mais gosta!
+  </div>
+
+  <div *ngIf="!loading && !error && favoritos.length > 0" class="favorites-grid">
+    <div *ngFor="let ativo of favoritos" class="ativo-card">
+      <h3>{{ ativo.nome }}</h3>
+      <p><strong>Origem:</strong> {{ ativo.origem_geografica }}</p>
+      <p><strong>Função Principal:</strong> {{ ativo.funcao_principal }}</p>
+      <p><strong>Indicado:</strong> {{ ativo.tipo_de_pele_indicada }}</p>
+      <button (click)="removerFavorito(ativo.id)" class="remove-favorite-btn">
+        Remover dos Favoritos
+      </button>
+    </div>
+  </div>
+</div>
