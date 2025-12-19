@@ -14,6 +14,10 @@ import { RouterLink } from '@angular/router';
 export class FavoritosComponent implements OnInit {
   private ativosService = inject(AtivosService);
   private authService = inject(AuthService);
+  // Adicione isso no final da classe FavoritosComponent
+trackById(index: number, item: Ativo): number {
+  return item.id;
+}
 
   // Lista de ativos favoritados
   listaFavoritos: WritableSignal<Ativo[]> = signal([]);

@@ -1,70 +1,140 @@
-.favoritos-container {
-    padding: 60px 10%;
-    min-height: 80vh;
+:host {
+    display: block;
     background-color: #fdfcfb;
+    padding: 60px 10%;
+    min-height: 100vh;
 }
 
-.header-pagina {
-    margin-bottom: 50px;
+.header-favoritos {
     text-align: center;
+    margin-bottom: 50px;
 }
 
-.header-pagina h1 {
+.header-favoritos h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 2.8rem;
-    color: #050a24;
-    margin-top: 20px;
+    color: #041f6b;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
 }
 
-.btn-voltar {
-    text-decoration: none;
-    color: var(--verde-primario);
-    font-weight: 600;
-    font-size: 0.9rem;
+.header-favoritos p {
+    color: #3165c5;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
 }
 
-/* Reutilizando seu Grid */
+/* Grid Reutilizado */
 .ativos-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 25px;
 }
 
-/* Estilo do botão de remover no topo do card */
-.card-header {
-    position: relative;
+.ativo-card {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    background-color: #faf9f7;
+    border: 1px solid #f0f0f0;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.4s ease;
 }
 
-.btn-remove {
-    position: absolute;
-    right: 15px;
-    top: 15px;
-    background: none;
+.ativo-card h3 {
+    background-color: #ffffff;
+    margin: 0;
+    padding: 25px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #041f6b;
+    text-align: center;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.ativo-card p {
+    padding: 0 25px;
+    margin: 15px 0;
+    font-size: 0.85rem;
+    color: #000000;
+    line-height: 1.4;
+}
+
+.ativo-card p strong {
+    color: #3165c5;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 3px;
+}
+
+/* Botão de Remover */
+.remove-btn {
+    margin-top: auto;
+    background: #ffffff;
+    color: #041f6b;
     border: none;
-    color: #ccc;
+    border-top: 1px solid #f0f0f0;
+    padding: 18px;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
     cursor: pointer;
-    font-size: 1.2rem;
-    transition: color 0.3s;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
-.btn-remove:hover {
-    color: #e74c3c;
+.remove-btn:hover {
+    background: #fff5f5;
+    color: #c0392b;
 }
 
+/* Empty State Styles */
 .empty-state {
     text-align: center;
     padding: 100px 0;
 }
 
-.btn-primary {
-    background-color: var(--verde-primario);
-    color: white;
-    padding: 12px 25px;
-    text-decoration: none;
-    border-radius: 4px;
-    display: inline-block;
-    margin-top: 20px;
+.heart-empty {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 20px;
+    opacity: 0.3;
 }
+
+.btn-explore {
+    background: #041f6b;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.btn-explore:hover {
+    background: #3165c5;
+    transform: scale(1.05);
+}
+
+.back-navigation { margin-bottom: 40px; }
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #041f6b;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+@media (max-width: 1100px) { .ativos-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 700px) { .ativos-grid { grid-template-columns: 1fr; } }
